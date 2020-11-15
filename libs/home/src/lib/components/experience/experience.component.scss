@@ -1,0 +1,28 @@
+@import '../../../../../shared/src/lib/scss/mixin';
+@import '../../../../../shared/src/lib/scss/variables';
+
+$item-spacer: 16px;
+
+.experience-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0 (-$item-spacer / 2);
+
+  @include mediaSP {
+    margin: (-$item-spacer / 2) 0;
+    flex-direction: column;
+  }
+}
+
+.experience-item {
+  box-sizing: border-box;
+  flex: 0 0 33.333%;
+  flex-wrap: wrap;
+  padding: 0 ($item-spacer / 2);
+
+  @include mediaSP {
+    flex-basis: 100%;
+    padding: ($item-spacer / 2) 0;
+    flex-direction: column;
+  }
+}

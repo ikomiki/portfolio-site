@@ -1,0 +1,23 @@
+@import '../../../../../shared/src/lib/scss/mixin';
+@import '../../../../../shared/src/lib/scss/variables';
+
+@mixin content {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: $padding-horzontal;
+  padding-right: $padding-horzontal;
+
+  @include mediaPC {
+    width: $content-max;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+main {
+  @include content;
+}
+
+.toolbar-container {
+  @include content;
+}

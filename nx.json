@@ -29,6 +29,18 @@
     "portfolio-site-e2e": {
       "tags": [],
       "implicitDependencies": ["portfolio-site"]
+    },
+    "home": {
+      "tags": ["scope:portfolio"]
+    },
+    "layout": {
+      "tags": ["scope:portfolio"]
+    },
+    "shared": {
+      "tags": ["scope:shared"]
+    },
+    "material": {
+      "tags": ["scope:shared"]
     }
   }
 }

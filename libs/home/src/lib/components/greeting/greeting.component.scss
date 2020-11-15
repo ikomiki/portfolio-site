@@ -1,0 +1,12 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+}
+
+// .home-item {
+// }
+
+.avatar-image {
+  background-image: url('../../../../../../apps//portfolio-site/src/assets/images/avatar.jpg');
+  background-size: cover;
+}

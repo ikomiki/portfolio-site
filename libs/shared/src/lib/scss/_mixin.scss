@@ -1,0 +1,29 @@
+@import 'variables';
+
+@mixin mediaSP {
+  @media all and (max-width: $pc-width) {
+    @content;
+  }
+}
+
+@mixin mediaPC {
+  /* 751 */
+  @media all and (min-width: ($pc-width)+1) {
+    @content;
+  }
+}
+
+@mixin trans {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+@mixin trans2 {
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+
+@mixin transOpacity {
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}

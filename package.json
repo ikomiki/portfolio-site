@@ -6,6 +6,7 @@
     "nx": "nx",
     "start": "nx serve",
     "build": "nx build",
+    "build:prod": "nx build --prod && npm run gzipper",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
@@ -28,10 +29,14 @@
     "prettier": "npm run prettier:ts && npm run prettier:html",
     "prettier:ts": "prettier --write --parser 'typescript' '{apps,libs}/*/src/**/*.ts'",
     "prettier:html": "prettier --write --parser 'angular' '{apps,libs}/*/src/**/*.html'",
-    "stylelint": "stylelint '{apps,libs}/*/src/**/*.{css,scss}",
+    "stylelint": "stylelint '{apps,libs}/*/src/**/*.{css,scss}'",
     "stylelint:fix": "npm run stylelint -- --fix",
     "textlint": "textlint '{*.md,{apps,libs}/*/src/**/*.{html,md,txt}'}",
-    "textlint:fix": "npm run textlint -- --fix"
+    "textlint:fix": "npm run textlint -- --fix",
+    "gzipper": "gzipper compress ./dist/apps ./dist/gzipped",
+    "gzipper:s3": "gzipper compress --output-file-format [filename].[ext] ./dist/apps ./dist/gzipped-s3",
+    "serve:portfolio": "http-server dist/apps/portfolio-site/",
+    "serve:portfolio:gzipped": "http-server dist/gzipped/apps/portfolio-site/ -g"
   },
   "lint-staged": {
     "*.html": [
@@ -42,8 +47,16 @@
       "tslint --fix",
       "git add"
     ],
-    "*.{css,scss}": [
+    "*.css": [
       "stylelint --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint --syntax=scss --fix",
+      "git add"
+    ],
+    "*.{json,yaml,graphql}": [
+      "prettier --write",
       "git add"
     ],
     "*.{html,md,txt}": [
@@ -75,6 +88,7 @@
     "@angular/platform-browser-dynamic": "^10.1.0",
     "@angular/router": "^10.1.0",
     "@nrwl/angular": "10.3.3",
+    "dayjs": "^1.9.6",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.5.5",
     "zone.js": "^0.10.2"
@@ -96,6 +110,8 @@
     "cypress": "^4.1.0",
     "dotenv": "6.2.0",
     "eslint": "7.10.0",
+    "gzipper": "^4.3.0",
+    "http-server": "^0.12.3",
     "husky": "^4.3.0",
     "hysky": "^1.0.1",
     "imagemin-lint-staged": "^0.4.0",
@@ -104,7 +120,10 @@
     "lint-staged": "^10.5.1",
     "prettier": "2.0.4",
     "stylelint": "^13.7.2",
-    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.18.0",
     "textlint": "^11.7.6",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-plugin-html": "^0.2.0",

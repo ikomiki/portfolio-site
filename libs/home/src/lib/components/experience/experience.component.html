@@ -1,0 +1,13 @@
+<h2>経験</h2>
+<div class="experience-container">
+  <div class="experience-item" *ngFor="let item of items">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ item.title }}</mat-card-title>
+        <mat-card-subtitle>{{ item.subtitle }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ item.period }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content><div [innerHTML]="item.content"></div></mat-card-content>
+    </mat-card>
+  </div>
+</div>
