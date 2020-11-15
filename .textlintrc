@@ -1,0 +1,150 @@
+{
+  "plugins": [
+    "html"
+  ],
+  "filters": {
+    "comments": true
+  },
+  "rules": {
+    "no-todo": true,
+    // html 形式の場合<p>タグが検出されてしまうので、コメントアウトしておく
+    "no-start-duplicated-conjunction": {
+      "interval": 2 // interval of sentences
+    },
+    "max-number-of-lines": {
+      "max": 300
+    },
+    "max-comma": {
+      "max": 3
+    },
+    // エクスクラメーションマークに対するチェック
+    "no-exclamation-question-mark": {
+      // allow word list that support RegExp-like String
+      "allow": [
+        "Yahoo!"
+      ],
+      // allow to use !
+      "allowHalfWidthExclamation": false,
+      // allow to use ！
+      "allowFullWidthExclamation": true,
+      // allow to use ?
+      "allowHalfWidthQuestion": false,
+      // allow to use ？
+      "allowFullWidthQuestion": true
+    },
+    // デッドリンクチェック
+    "no-dead-link": {
+      "checkRelative": false,
+      "baseURI": null,
+      "ignore": []
+    },
+    "no-empty-section": true,
+    "date-weekday-mismatch": {
+      "lang": "ja"
+    },
+    "terminology": {
+      // Load default terms (see terms.json in the repository)
+      "defaultTerms": true,
+      // Syntax elements to skip. Overrides the default
+      "skip": [
+        "Blockquote"
+      ],
+      // List of terms
+      "terms": [
+        // Exact spelling including the case
+        "JavaScript",
+        "ESLint",
+        "Sass",
+        "Less",
+        "npm",
+        // RegExp (case-insensitive) → replacement
+        [
+          "front[- ]end(\\w*)",
+          "frontend$1"
+        ],
+        [
+          "back[- ]end(\\w*)",
+          "backend$1"
+        ],
+        [
+          "web[- ]?site(s?)",
+          "site$1"
+        ],
+        [
+          "hot[- ]key",
+          "hotkey"
+        ],
+        [
+          "repo\\b",
+          "repository"
+        ],
+        [
+          "CLI tool(s?)",
+          "command line tool$1"
+        ],
+        [
+          "build system(s?)",
+          "build tool$1"
+        ],
+        [
+          "id['’]?s",
+          "IDs"
+        ],
+        [
+          "(\\w+[^.?!]\\)? )webpack",
+          "$1webpack"
+        ],
+        [
+          "(\\w+[^.?!]\\)? )internet",
+          "$internet"
+        ]
+      ]
+      // // OR load terms from a file
+      // "terms": "~/terms.json",
+      // // OR load terms from npm
+      // "terms": "@johnsmith/terms"
+    },
+    "no-nfd": true,
+    "no-surrogate-pair": true,
+    "max-ten": {
+      "max": 3
+    },
+    "max-kanji-continuous-len": {
+      // 連続できる漢字の文字数
+      // Allow max continuous length of kanji
+      // If {current} > max(5), report Error.
+      "max": 5,
+      // "倍精度浮動小数点数"という単語は例外として無視します
+      "allow": [
+        "倍精度浮動小数点数"
+      ]
+    },
+    "no-doubled-joshi": {
+      "min_interval": 1,
+      "strict": false,
+      "allow": []
+    },
+    "no-double-negative-ja": true,
+    "no-hankaku-kana": true,
+    "ja-no-redundant-expression": true,
+    "no-mixed-zenkaku-and-hankaku-alphabet": true,
+    "sentence-length": true,
+    "no-dropping-the-ra": true,
+    "no-doubled-conjunctive-particle-ga": true,
+    "ja-no-mixed-period": true,
+    "textlint-rule-max-appearence-count-of-words": {
+      "limit": 5
+    },
+    "textlint-rule-max-length-of-title": {
+      "#": 40,
+      "##": 60
+    },
+    "incremental-headers": true,
+    "ja-hiragana-keishikimeishi": true,
+    "ja-hiragana-fukushi": true,
+    "ja-hiragana-hojodoushi": true,
+    "ja-unnatural-alphabet": true,
+    "@textlint-ja/textlint-rule-no-insert-dropping-sa": true,
+    "prefer-tari-tari": true
+  }
+}
