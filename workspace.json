@@ -25,7 +25,10 @@
               "apps/portfolio-site/src/favicon.ico",
               "apps/portfolio-site/src/assets"
             ],
-            "styles": ["apps/portfolio-site/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/portfolio-site/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -84,7 +87,10 @@
               "apps/portfolio-site/tsconfig.spec.json",
               "apps/portfolio-site/tsconfig.editor.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/portfolio-site/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/portfolio-site/**/*"
+            ]
           }
         },
         "test": {
@@ -117,8 +123,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/portfolio-site-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/portfolio-site-e2e/**/*"]
+            "tsConfig": [
+              "apps/portfolio-site-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/portfolio-site-e2e/**/*"
+            ]
           }
         }
       }
