@@ -1,0 +1,18 @@
+<h2>技術</h2>
+<div class="knowledge-container">
+  <mat-card>
+    <div class="knowledge-category" *ngFor="let category of categories">
+      <mat-card-content>
+        <h3>{{ category.category }}</h3>
+        <mat-chip-list [attr.aria-label]="category.category" [selectable]="false">
+          <mat-chip
+            *ngFor="let item of category.items"
+            [color]="item.color"
+            [selected]="!!item.color"
+            >{{ item.caption }}</mat-chip
+          >
+        </mat-chip-list>
+      </mat-card-content>
+    </div>
+  </mat-card>
+</div>
