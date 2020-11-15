@@ -1,5 +1,7 @@
 # Portfolio
 
+<!-- textlint-disable sentence-length,no-dead-link,no-surrogate-pair -->
+
 This project was generated using [Nx](https://nx.dev).
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
@@ -24,10 +26,10 @@ Below are our core plugins:
   - `npm install --save-dev @nrwl/nest`
 - [Express](https://expressjs.com)
   - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
+- [Node.js](https://nodejs.org/en/)
   - `npm install --save-dev @nrwl/node`
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+There are also many [community plugins](https://nx.dev/nx-community/) you could add.
 
 ## Generate an application
 
@@ -47,7 +49,7 @@ Libraries are sharable across libraries and applications. They can be imported f
 
 ## Development server
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run `nx serve my-app` for a dev server. Navigate to <http://localhost:4200/>. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
