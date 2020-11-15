@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { HomeModule, HomeComponent } from '@portfolio/home';
 import { LayoutModule } from '@portfolio/layout';
 import { MaterialModule } from '@portfolio/material';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +25,7 @@ import { MaterialModule } from '@portfolio/material';
         component: HomeComponent,
       },
     ]),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent],
