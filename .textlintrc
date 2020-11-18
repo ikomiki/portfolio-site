@@ -24,7 +24,8 @@
         "Yahoo!"
       ],
       // allow to use !
-      "allowHalfWidthExclamation": false,
+      // Angular系の生成コードは!多発されるため
+      "allowHalfWidthExclamation": true,
       // allow to use ！
       "allowFullWidthExclamation": true,
       // allow to use ?
