@@ -15,7 +15,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/portfolio-site",
+            "outputPath": "dist/portfolio-site/browser",
             "index": "apps/portfolio-site/src/index.html",
             "main": "apps/portfolio-site/src/main.ts",
             "polyfills": "apps/portfolio-site/src/polyfills.ts",
@@ -90,7 +90,8 @@
             "tsConfig": [
               "apps/portfolio-site/tsconfig.app.json",
               "apps/portfolio-site/tsconfig.spec.json",
-              "apps/portfolio-site/tsconfig.editor.json"
+              "apps/portfolio-site/tsconfig.editor.json",
+              "apps/portfolio-site/tsconfig.server.json"
             ],
             "exclude": ["**/node_modules/**", "!apps/portfolio-site/**/*"]
           }
@@ -100,6 +101,41 @@
           "options": {
             "jestConfig": "apps/portfolio-site/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/portfolio-site/server",
+            "main": "apps/portfolio-site/src/main.server.ts",
+            "tsConfig": "apps/portfolio-site/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/portfolio-site/src/environments/environment.ts",
+                  "with": "apps/portfolio-site/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "app-shell": {
+          "builder": "@angular-devkit/build-angular:app-shell",
+          "options": {
+            "browserTarget": "portfolio-site:build",
+            "serverTarget": "portfolio-site:server",
+            "route": "shell"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "portfolio-site:build:production",
+              "serverTarget": "portfolio-site:server:production"
+            }
           }
         }
       }

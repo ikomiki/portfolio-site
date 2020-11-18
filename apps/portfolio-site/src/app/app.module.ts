@@ -13,7 +13,7 @@ import { environment } from '../environments/environment';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HomeModule,
     LayoutModule,
@@ -26,6 +26,7 @@ import { environment } from '../environments/environment';
       },
     ]),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
