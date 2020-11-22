@@ -1,3 +1,7 @@
 const nxPreset = require('@nrwl/jest/preset');
 
-module.exports = { ...nxPreset };
+const workspacePreset = {
+  testTimeout: 3000,
+};
+
+module.exports = { ...nxPreset, ...workspacePreset };

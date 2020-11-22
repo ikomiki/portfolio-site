@@ -1,18 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { HomeModule, HomeComponent } from '@portfolio/home';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
+import { CoreModule } from '@portfolio/core';
+import { HomeComponent, HomeModule } from '@portfolio/home';
 import { LayoutModule } from '@portfolio/layout';
 import { MaterialModule } from '@portfolio/material';
-import { ServiceWorkerModule } from '@angular/service-worker';
+
 import { environment } from '../environments/environment';
+
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    CoreModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HomeModule,
@@ -25,10 +29,12 @@ import { environment } from '../environments/environment';
         component: HomeComponent,
       },
     ]),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
+    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: true }),
     RouterModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

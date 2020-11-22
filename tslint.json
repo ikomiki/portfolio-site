@@ -1,5 +1,8 @@
 {
-  "rulesDirectory": ["node_modules/@nrwl/workspace/src/tslint", "node_modules/codelyzer"],
+  "rulesDirectory": [
+    "node_modules/@nrwl/workspace/src/tslint",
+    "node_modules/codelyzer"
+  ],
   "linterOptions": {
     "exclude": ["**/*"]
   },
@@ -18,7 +21,12 @@
     "member-ordering": [
       true,
       {
-        "order": ["static-field", "instance-field", "static-method", "instance-method"]
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
       }
     ],
     "no-arg": true,
@@ -78,13 +86,6 @@
     "linebreak-style": [true, "LF"],
     "max-file-line-count": [true, 700],
     "max-classes-per-file": [true, 1, "exclude-class-expressions"],
-    "max-line-length": [
-      true,
-      {
-        "limit": 100,
-        "ignore-pattern": "// "
-      }
-    ],
     "no-boolean-literal-compare": true,
     "no-consecutive-blank-lines": true,
     "no-duplicate-imports": [
@@ -93,20 +94,51 @@
         "allow-namespace-imports": true
       }
     ],
-    "trailing-comma": [
+    "prettier": true,
+    "ordered-imports": [
       true,
       {
-        "multiline": {
-          "arrays": "always",
-          "objects": "always",
-          "functions": "never",
-          "typeLiterals": "ignore",
-          "imports": "never",
-          "exports": "never"
-        },
-        "esSpecCompliant": true
+        "import-sources-order": "lowercase-last",
+        "named-imports-order": "lowercase-first",
+        "grouped-imports": true,
+        "groups": [
+          {
+            "name": "angular",
+            "match": "^@angular",
+            "order": 10
+          },
+          {
+            "name": "@firebase",
+            "match": "^@firebase",
+            "order": 20
+          },
+          {
+            "name": "@",
+            "match": "^@",
+            "order": 80
+          },
+          {
+            "name": "@portfolio",
+            "match": "^@portfolio",
+            "order": 90
+          },
+          {
+            "name": "Thirdparty",
+            "match": "^[^\\.]",
+            "order": 100
+          },
+          {
+            "name": "Parent directory",
+            "match": "^\\.\\./",
+            "order": 1000
+          },
+          {
+            "name": "Current directory",
+            "match": "^\\./",
+            "order": 2000
+          }
+        ]
       }
-    ],
-    "prettier": true
+    ]
   }
 }

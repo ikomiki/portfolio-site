@@ -1,5 +1,16 @@
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
+import {
+  CheckForUpdateService,
+  LogUpdateService,
+  PromptUpdateService,
+} from '@portfolio/core';
+
+import { environment } from '../environments/environment';
+
 import { AppComponent } from './app.component';
 
 // tslint:disable: max-classes-per-file
@@ -20,7 +31,25 @@ class MockPortfolioLayoutComponent {}
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent, MockRouterComponent, MockPortfolioLayoutComponent],
+      declarations: [
+        AppComponent,
+        MockRouterComponent,
+        MockPortfolioLayoutComponent,
+      ],
+      imports: [
+        RouterTestingModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+          enabled: environment.production,
+        }),
+      ],
+      providers: [
+        {
+          provide: CheckForUpdateService,
+          useValue: {} as CheckForUpdateService,
+        },
+        { provide: PromptUpdateService, useValue: {} as PromptUpdateService },
+        { provide: LogUpdateService, useValue: {} as LogUpdateService },
+      ],
     }).compileComponents();
   });
 

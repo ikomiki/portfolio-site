@@ -4,7 +4,10 @@
     <div class="knowledge-category" *ngFor="let category of categories">
       <mat-card-content>
         <h3>{{ category.category }}</h3>
-        <mat-chip-list [attr.aria-label]="category.category" [selectable]="false">
+        <mat-chip-list
+          [attr.aria-label]="category.category"
+          [selectable]="false"
+        >
           <mat-chip
             *ngFor="let item of category.items"
             [color]="item.color"

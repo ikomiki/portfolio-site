@@ -21,7 +21,8 @@
       "@portfolio/home": ["libs/home/src/index.ts"],
       "@portfolio/layout": ["libs/layout/src/index.ts"],
       "@portfolio/shared": ["libs/shared/src/index.ts"],
-      "@portfolio/material": ["libs/material/src/index.ts"]
+      "@portfolio/material": ["libs/material/src/index.ts"],
+      "@portfolio/core": ["libs/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

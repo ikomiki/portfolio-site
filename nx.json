@@ -41,6 +41,9 @@
     },
     "material": {
       "tags": ["scope:shared"]
+    },
+    "core": {
+      "tags": ["scope:core"]
     }
   }
 }
